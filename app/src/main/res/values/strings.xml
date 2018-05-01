@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">K2A USB Keyboard</string>
+    <string name="app_name">(#) K2A USB Keyboard</string>
     <string name="type">Type to USB</string>
 
     <string name="kp2aplugin_title">USB Keyboard</string>
     <string name="kp2aplugin_shortdesc">Send password to computer connected via USB</string>
-    <string name="kp2aplugin_author">Manatsawin Hanmongkolchai</string>
+    <string name="kp2aplugin_author">Manatsawin Hanmongkolchai (# mod)</string>
 
     <string name="enable_plugin">Enable Keepass2Android plugin</string>
     <string name="type_user_pass">Type username/password to USB</string>

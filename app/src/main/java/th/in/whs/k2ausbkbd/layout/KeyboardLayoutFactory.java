@@ -11,13 +11,14 @@ public class KeyboardLayoutFactory {
         register("QWERTY", QwertyLayout.class);
         register("QWERTZ", QwertzLayout.class);
         register("AZERTY", AzertyLayout.class);
+        register("QWERTZ-CZ-LINUX", QwertzLayoutCZLinux.class);
     }
 
-    public void register(String name, Class<? extends Layout> layout){
+    private void register(String name, Class<? extends Layout> layout) {
         registry.put(name, layout);
     }
 
-    public Layout get(String layout) throws IllegalAccessException, InstantiationException {
+    private Layout get(String layout) throws IllegalAccessException, InstantiationException {
         return registry.get(layout).newInstance();
     }
 

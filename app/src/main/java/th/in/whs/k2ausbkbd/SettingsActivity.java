@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-
 import keepass2android.pluginsdk.Strings;
+
+//FIXME update to fragment-based settings
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -104,10 +104,10 @@ public class SettingsActivity extends PreferenceActivity implements SharedPrefer
                 & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private static boolean isSimplePreferences(Context context) {
-        return ALWAYS_SIMPLE_PREFS
-                || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
-                || !isXLargeTablet(context);
+        //noinspection ConstantConditions
+        return ALWAYS_SIMPLE_PREFS || !isXLargeTablet(context);
     }
 
     /**

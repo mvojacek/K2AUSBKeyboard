@@ -11,7 +11,7 @@ public class KeepassAccessReceiver extends PluginAccessBroadcastReceiver {
     @Override
     public ArrayList<String> getScopes() {
         Log.d("AccessReceiver", "got getScopes call");
-        ArrayList<String> scopes = new ArrayList<String>();
+        ArrayList<String> scopes = new ArrayList<>();
         scopes.add(Strings.SCOPE_CURRENT_ENTRY);
         return scopes;
     }

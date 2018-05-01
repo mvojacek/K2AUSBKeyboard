@@ -4,16 +4,17 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import th.in.whs.k2ausbkbd.layout.*;
+import th.in.whs.k2ausbkbd.layout.KeyCode;
+import th.in.whs.k2ausbkbd.layout.Layout;
 
 public class Keyboard {
     private static Keyboard instance = null;
 
-    public static final String DEVICE = "/dev/hidg0";
+    private static final String DEVICE = "/dev/hidg0";
 
     private Process process;
 
-    protected Keyboard() throws UnsupportedOperationException {
+    private Keyboard() throws UnsupportedOperationException {
         if(!new File(DEVICE).exists()){
             throw new UnsupportedOperationException("Unsupported kernel");
         }
@@ -41,9 +42,9 @@ public class Keyboard {
             sendChar(typeChar, layout);
 
             // Fix for double tap.
-            if( typeChar == '^' || typeChar == '´' || typeChar == '`' ) {
+            /*if( typeChar == '^' || typeChar == '´' || typeChar == '`' ) {
                 sendChar( ' ', layout );
-            }
+            }*/
         }
     }
 
@@ -75,9 +76,9 @@ public class Keyboard {
 
     private String bytesToEcho(byte[] bytes){
         StringBuilder builder = new StringBuilder();
-        for(int i = 0; i < bytes.length; i++){
+        for (byte aByte : bytes) {
             builder.append("\\\\x");
-            builder.append(Integer.toHexString(new Byte(bytes[i]).intValue()));
+            builder.append(Integer.toHexString(Byte.valueOf(aByte).intValue()));
         }
         return builder.toString();
     }

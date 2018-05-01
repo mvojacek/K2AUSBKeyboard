@@ -12,7 +12,7 @@ public class QwertzLayout implements Layout {
 
     protected QwertzLayout() {
         // First we initialize our keyMap, which contains the keys normal, shift, altgr buttons
-        TreeMap<Character, char[]> keyMap = new TreeMap<Character, char[]>();
+        TreeMap<Character, char[]> keyMap = new TreeMap<>();
         keyMap.put((char)0x00, new char[]{'\0', '\0', '\0'}); 	// Reserved (no event indicated)
         keyMap.put((char)0x01, new char[]{'\0', '\0', '\0'}); 	// Keyboard ErrorRollOver
         keyMap.put((char)0x02, new char[]{'\0', '\0', '\0'}); 	// Keyboard POSTFail
@@ -125,7 +125,7 @@ public class QwertzLayout implements Layout {
         keyMap.put((char)0xE7, new char[]{'\0', '\0', '\0'}); 	// Keyboard Right GUI
 
         // Now we create a ascii table for the buttons to easy get the keycode
-        keyTable = new TreeMap<Character, KeyCode>();
+        keyTable = new TreeMap<>();
 
         for( Map.Entry<Character, char[]> entry : keyMap.entrySet() ) {
             char[] keys = entry.getValue();
